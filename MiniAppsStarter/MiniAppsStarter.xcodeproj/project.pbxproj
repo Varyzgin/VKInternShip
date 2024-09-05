@@ -16,6 +16,7 @@
 		3236E0C92C89E3560077C2EC /* MiniAppsStarterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236E0C82C89E3560077C2EC /* MiniAppsStarterTests.swift */; };
 		3236E0D32C89E3560077C2EC /* MiniAppsStarterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236E0D22C89E3560077C2EC /* MiniAppsStarterUITests.swift */; };
 		3236E0D52C89E3560077C2EC /* MiniAppsStarterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236E0D42C89E3560077C2EC /* MiniAppsStarterUITestsLaunchTests.swift */; };
+		3236E0E32C89E4A20077C2EC /* WeatherPack in Frameworks */ = {isa = PBXBuildFile; productRef = 3236E0E22C89E4A20077C2EC /* WeatherPack */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3236E0E32C89E4A20077C2EC /* WeatherPack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +145,9 @@
 			dependencies = (
 			);
 			name = MiniAppsStarter;
+			packageProductDependencies = (
+				3236E0E22C89E4A20077C2EC /* WeatherPack */,
+			);
 			productName = MiniAppsStarter;
 			productReference = 3236E0AE2C89E3550077C2EC /* MiniAppsStarter.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 3236E0A52C89E3550077C2EC;
+			packageReferences = (
+				3236E0E12C89E4A20077C2EC /* XCLocalSwiftPackageReference "../WeatherPack" */,
+			);
 			productRefGroup = 3236E0AF2C89E3550077C2EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -603,6 +611,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		3236E0E12C89E4A20077C2EC /* XCLocalSwiftPackageReference "../WeatherPack" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../WeatherPack;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3236E0E22C89E4A20077C2EC /* WeatherPack */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WeatherPack;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3236E0A62C89E3550077C2EC /* Project object */;
 }
