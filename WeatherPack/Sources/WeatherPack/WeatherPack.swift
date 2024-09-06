@@ -3,37 +3,57 @@
 
 import UIKit
 
-public class MyTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let tableView = UITableView()
+public class ResizableLabelViewController: UIViewController {
+
+    private var label = UILabel()
 
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Настройка TableView
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.frame = self.view.bounds
-        tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(tableView)
+        view.backgroundColor = .white
+
+        // Настройка label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.numberOfLines = 0
+
+        view.addSubview(label)
+        
+        // Добавляем Constraints для label, чтобы он мог центрироваться по X и Y
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            label.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, constant: -20),
+            label.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, constant: -20)
+        ])
     }
 
-    // MARK: - UITableViewDataSource
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10  // Например, 10 строк
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        // Рассчитываем соотношение ширины и высоты
+        let width = view.bounds.width
+        let height = view.bounds.height
+        let aspectRatio = height / width
+
+        // Изменяем положение и размер шрифта в зависимости от соотношения
+        if aspectRatio < 0.25 {
+            // Если высота в 4 раза меньше ширины, размещаем слева
+            label.textAlignment = .left
+            label.font = UIFont.systemFont(ofSize: 16)
+        } else if aspectRatio >= 0.25 && aspectRatio <= 1.0 {
+            // Если высота равна ширине (1:1), размещаем в центре, с мелким шрифтом
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 16)
+        } else {
+            // Если высота больше ширины, размещаем в центре с крупным шрифтом
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 24)
+        }
     }
-    
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = "Row \(indexPath.row + 1)"
-        return cell
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        print("Selected row \(indexPath.row + 1)")
+
+    // Метод для обновления текста в label
+    public func updateLabel(text: String) {
+        label.text = text
     }
 }
