@@ -4,19 +4,19 @@
 import UIKit
 
 public class ResizableLabelViewController: UIViewController {
-
+    
     private var label = UILabel()
-
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-
+        
         // Настройка label
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
-
+        
         view.addSubview(label)
         
         // Добавляем Constraints для label, чтобы он мог центрироваться по X и Y
@@ -27,15 +27,15 @@ public class ResizableLabelViewController: UIViewController {
             label.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, constant: -20)
         ])
     }
-
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
+        
         // Рассчитываем соотношение ширины и высоты
         let width = view.bounds.width
         let height = view.bounds.height
         let aspectRatio = height / width
-
+        
         // Изменяем положение и размер шрифта в зависимости от соотношения
         if aspectRatio < 0.25 {
             // Если высота в 4 раза меньше ширины, размещаем слева
@@ -51,7 +51,7 @@ public class ResizableLabelViewController: UIViewController {
             label.font = UIFont.systemFont(ofSize: 24)
         }
     }
-
+    
     // Метод для обновления текста в label
     public func updateLabel(text: String) {
         label.text = text
