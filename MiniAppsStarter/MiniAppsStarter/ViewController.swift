@@ -24,10 +24,9 @@ class ViewController: UIViewController {
 
         @objc func showTableView() {
             // Создаем экземпляр MyTableViewController
-            let tableVC = MyTableViewController()
+            let tableVC = MiniAppTableViewController()
             navigationController?.pushViewController(tableVC, animated: true)
         }
 
 
 }
-
