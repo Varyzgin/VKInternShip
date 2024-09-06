@@ -9,21 +9,24 @@ import UIKit
 import WeatherPack
 
 class ViewController: UIViewController {
-    private var resizableLabelVC: ResizableLabelViewController?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        
-        let labelWidgetVC = ResizableLabelViewController()
-        labelWidgetVC.updateLabel(text: "Digit")
-        
-        addChild(labelWidgetVC)
-        labelWidgetVC.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelWidgetVC.view)
-        labelWidgetVC.didMove(toParent: self)
 
-        self.resizableLabelVC = labelWidgetVC // ссылка на текущий label
-    }
-   
+    override func viewDidLoad() {
+            super.viewDidLoad()
+
+            // Создаем кнопку
+            let button = UIButton(type: .system)
+            button.setTitle("Show Table", for: .normal)
+            button.frame = CGRect(x: 100, y: 100, width: 150, height: 50)
+            button.addTarget(self, action: #selector(showTableView), for: .touchUpInside)
+            
+            view.addSubview(button)
+        }
+
+        @objc func showTableView() {
+            // Создаем экземпляр MyTableViewController
+            let tableVC = MiniAppTableViewController()
+            navigationController?.pushViewController(tableVC, animated: true)
+        }
+
+
 }
