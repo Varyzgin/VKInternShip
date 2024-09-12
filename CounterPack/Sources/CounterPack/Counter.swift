@@ -1,18 +1,6 @@
 import UIKit
 
-protocol MiniAppViewEighth {
-    func configureViewForEighth()
-}
-
-protocol MiniAppViewHalf {
-    func configureViewForHalf()
-}
-
-protocol MiniAppViewFull {
-    func configureViewForFull()
-}
-
-public class CounterMiniApp: MiniAppViewEighth, MiniAppViewHalf, MiniAppViewFull {
+public class CounterMiniApp {
     public var counter: Int = 0
     public let label = UILabel()
     let id: UUID
