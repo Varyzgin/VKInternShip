@@ -50,4 +50,9 @@ class MiniAppTableViewHalf: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let safeAreaHeight = tableView.frame.height - view.safeAreaInsets.top - view.safeAreaInsets.bottom
+        return safeAreaHeight / CGFloat(2) // Каждая ячейка занимает 1/8 высоты экрана
+    }
 }
