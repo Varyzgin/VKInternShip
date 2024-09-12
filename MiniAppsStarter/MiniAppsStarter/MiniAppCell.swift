@@ -1,10 +1,3 @@
-//
-//  MiniAppCell.swift
-//  MiniAppsStarter
-//
-//  Created by Дима on 9/6/24.
-//
-
 import UIKit
 
 class MiniAppTableViewCell: UITableViewCell {
