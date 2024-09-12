@@ -28,7 +28,7 @@ public class CounterMiniApp: MiniAppViewEighth, MiniAppViewHalf, MiniAppViewFull
         label.text = "\(id)"
         label.font = UIFont.systemFont(ofSize: 18)
         label.textAlignment = .left
-        print("Configured for 1/8 view for \(id)")
+        print("Configured  1/8 (\(id))")
     }
     
     // Реализация метода для 1/2 представления
@@ -36,7 +36,7 @@ public class CounterMiniApp: MiniAppViewEighth, MiniAppViewHalf, MiniAppViewFull
         label.text = "\(id)"
         label.font = UIFont.systemFont(ofSize: 24)
         label.textAlignment = .center
-        print("Configured for 1/2 view for \(id)")
+        print("Configured 1/2 (\(id))")
     }
 
     // Реализация метода для полного экрана

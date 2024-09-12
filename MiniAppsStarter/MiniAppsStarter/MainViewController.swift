@@ -6,7 +6,7 @@ public class ViewController: UITabBarController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         var miniAppsArray = [CounterMiniApp]()
-        for _ in 1...10 {
+        for _ in 1...20 {
             miniAppsArray.append(CounterMiniApp())
         }
         

@@ -5,6 +5,7 @@ class MiniAppTableViewEighth: UIViewController, UITableViewDataSource, UITableVi
     
     var tableView = UITableView()
     let cellIdentifier = "MiniAppCell"
+    var lastContentOffset: CGPoint = .zero
     let miniApps : [CounterMiniApp]
     
     required init?(coder: NSCoder) {
@@ -15,15 +16,16 @@ class MiniAppTableViewEighth: UIViewController, UITableViewDataSource, UITableVi
         self.miniApps = miniApps
         super.init(nibName: nil, bundle: nil)
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTableView() // Пересоздание таблицы каждый раз при отображении вкладки
+        tableView.setContentOffset(lastContentOffset, animated: false)
+        tableView.reloadData()  // Перезагружаем данные при каждом отображении
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        tableView.removeFromSuperview() // Удаление таблицы при уходе с вкладки
+        // Сохраняем текущую позицию прокрутки
+        lastContentOffset = tableView.contentOffset
     }
     
     func setupTableView() {
