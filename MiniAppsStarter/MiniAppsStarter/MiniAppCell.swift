@@ -13,7 +13,7 @@ class MiniAppTableViewCell: UITableViewCell {
     let miniAppContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray // Устанавливаем цвет для визуального выделения
+        view.backgroundColor = .lightGray
         return view
     }()
 
@@ -30,7 +30,6 @@ class MiniAppTableViewCell: UITableViewCell {
     private func setupUI() {
         contentView.addSubview(miniAppContainer)
 
-        // Устанавливаем AutoLayout для контейнера
         NSLayoutConstraint.activate([
             miniAppContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 1),
             miniAppContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1),
